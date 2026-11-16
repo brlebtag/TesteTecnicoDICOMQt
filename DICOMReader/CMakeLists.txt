@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.21)
+cmake_minimum_required(VERSION 3.25)
 
 project(DICOMReader
     VERSION 1.0.0
@@ -16,6 +16,11 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 include(compilerwarnings)
 
 find_package(Qt6 6.5 REQUIRED COMPONENTS Core Gui Widgets)
+
+# A DCMTK é incluída antes de qt_standard_project_setup() para que os alvos
+# dela não recebam AUTOMOC/AUTOUIC.
+include(dcmtk)
+
 qt_standard_project_setup()
 
 add_subdirectory(src)
