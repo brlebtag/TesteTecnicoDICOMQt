@@ -45,6 +45,9 @@ WindowLevelPanel::WindowLevelPanel(QWidget *parent)
     , m_reset(new QPushButton(QStringLiteral("Restaurar janela inicial"), this))
     , m_message(new QLabel(this))
 {
+    m_presets->setObjectName(QStringLiteral("presetComboBox"));
+    m_center->setObjectName(QStringLiteral("centerSpinBox"));
+    m_width->setObjectName(QStringLiteral("widthSpinBox"));
     m_presets->setSizeAdjustPolicy(QComboBox::AdjustToMinimumContentsLengthWithIcon);
     m_presets->setMinimumContentsLength(16);
     m_range->setTextInteractionFlags(Qt::TextSelectableByMouse);

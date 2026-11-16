@@ -114,6 +114,7 @@ void MainWindow::setupFrameSelector()
     auto *layout = new QHBoxLayout(selector);
     layout->setContentsMargins(8, 0, 8, 0);
     m_frameSpinBox = new QSpinBox(selector);
+    m_frameSpinBox->setObjectName(QStringLiteral("frameSpinBox"));
     m_frameSpinBox->setAccelerated(true);
     m_frameCountLabel = new QLabel(selector);
     layout->addWidget(new QLabel(QStringLiteral("Frame:"), selector));
@@ -122,6 +123,7 @@ void MainWindow::setupFrameSelector()
 
     ui->mainToolBar->addSeparator();
     m_frameSelectorAction = ui->mainToolBar->addWidget(selector);
+    m_frameSelectorAction->setObjectName(QStringLiteral("frameSelectorAction"));
     m_frameSelectorAction->setVisible(false);
 
     connect(m_frameSpinBox, &QSpinBox::valueChanged, this, &MainWindow::showFrame);
@@ -130,8 +132,11 @@ void MainWindow::setupFrameSelector()
 void MainWindow::setupStatusBar()
 {
     m_imageInfoLabel = new QLabel(this);
+    m_imageInfoLabel->setObjectName(QStringLiteral("imageInfoLabel"));
     m_windowLabel = new QLabel(this);
+    m_windowLabel->setObjectName(QStringLiteral("windowLabel"));
     m_zoomLabel = new QLabel(this);
+    m_zoomLabel->setObjectName(QStringLiteral("zoomLabel"));
     statusBar()->addPermanentWidget(m_imageInfoLabel);
     statusBar()->addPermanentWidget(m_windowLabel);
     statusBar()->addPermanentWidget(m_zoomLabel);
