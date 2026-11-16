@@ -24,3 +24,8 @@ include(dcmtk)
 qt_standard_project_setup()
 
 add_subdirectory(src)
+
+if(DICOMREADER_BUILD_TESTS)
+    enable_testing()
+    add_subdirectory(tests)
+endif()
