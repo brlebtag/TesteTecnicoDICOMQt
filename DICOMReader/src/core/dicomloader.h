@@ -40,6 +40,9 @@ public:
     /// os metadados. Nunca lança exceções: falhas voltam como LoadError.
     static LoadResult load(const QString &filePath);
 
+    /// Versão da DCMTK com que o núcleo foi compilado (ex.: "3.7.1").
+    static QString dcmtkVersion();
+
 private:
     static LoadResult loadDocument(const QString &filePath);
 };

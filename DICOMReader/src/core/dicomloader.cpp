@@ -4,6 +4,7 @@
 #include <dcmtk/dcmdata/dcdeftag.h>
 #include <dcmtk/dcmdata/dcmetinf.h>
 #include <dcmtk/dcmdata/dcrledrg.h>
+#include <dcmtk/dcmdata/dcuid.h>
 #include <dcmtk/dcmdata/dcxfer.h>
 #include <dcmtk/dcmimage/diregist.h> // habilita imagens coloridas na DicomImage
 #include <dcmtk/dcmjpeg/djdecode.h>
@@ -194,6 +195,11 @@ std::unique_ptr<DicomImageDocument> LoadResult::takeDocument()
 const LoadError &LoadResult::error() const
 {
     return std::get<LoadError>(m_value);
+}
+
+QString DicomLoader::dcmtkVersion()
+{
+    return QStringLiteral(OFFIS_DCMTK_VERSION_STRING);
 }
 
 LoadResult DicomLoader::load(const QString &filePath)
