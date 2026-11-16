@@ -52,6 +52,9 @@ function(_dicomreader_fetch_dcmtk)
         # Headers da DCMTK como "system": os avisos rigorosos do projeto não
         # se aplicam a eles.
         SYSTEM
+        # Só as bibliotecas usadas são compiladas, e nada da DCMTK é instalado
+        # junto com a aplicação (ela é ligada estaticamente).
+        EXCLUDE_FROM_ALL
     )
     FetchContent_MakeAvailable(dcmtk)
 endfunction()
